@@ -5,3 +5,4 @@ export default function Home() {
     </main>
   )
 }
+// Path: threads-clone/app/page.tsx
