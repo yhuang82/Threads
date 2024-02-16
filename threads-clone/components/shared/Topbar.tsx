@@ -1,7 +1,7 @@
 function Topbar() {
   return (
-    <nav classNmae="topbar">
-      
+    <nav className="topbar">
+      <Link href="/" className="flex items-center gap-4"></Link>
     </nav>
   )
 }
