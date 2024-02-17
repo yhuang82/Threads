@@ -24,7 +24,6 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <Topbar />
-
           <main>
             <LeftSidebar />
             <section className="main-container">
