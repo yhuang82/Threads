@@ -10,6 +10,7 @@ function Topbar() {
           Threads
         </p>
       </Link>
+      <div className="flex items-center gap-4">
     </nav>
   )
 }
