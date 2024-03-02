@@ -1,5 +1,5 @@
 import AccountProfile from "@/components/forms/AccountProfile"
-
+import { currentUser } from "@clerk/nextjs"
 async function Page() {
   return (
     <main className="mx-auto flex max-w-3xl flex-col justify-start px-10 py-20">
