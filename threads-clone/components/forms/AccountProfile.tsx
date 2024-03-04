@@ -12,7 +12,9 @@ interface Props {
 }
   
 const AccountProfile = ({user, btnTitle}: Props) => {
-  return <div>Account Profile</div>;
+  return <div>
+    Account Profile
+        </div>;
 };
 
 export default AccountProfile;
