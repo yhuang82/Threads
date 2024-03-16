@@ -31,6 +31,7 @@ interface Props {
 }
 
 const AccountProfile = ({ user, btnTitle }: Props) => {
+  const [first, setfirst] = useState(second)
   const form = useForm({
     resolver: zodResolver(UserValidation),
     defaultValues: {
