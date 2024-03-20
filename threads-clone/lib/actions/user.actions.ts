@@ -5,7 +5,6 @@ import { connectToDB } from "../mongoose";
 import User from "../models/user.model";
 import { revalidatePath } from "next/cache";
 
-
 // This function is used to update the user's profile information.
 //small tips for destructuring the params object
 interface Params {
@@ -16,14 +15,15 @@ interface Params {
   image: string;
   path: string;
 }
- 
-export async function updataUser(
-  { userId,
-    username,
-    name,
-    bio,
-    image,
-    path}: Params): Promise<void> {
+
+export async function updateUser({
+  userId,
+  username,
+  name,
+  bio,
+  image,
+  path,
+}: Params): Promise<void> {
   connectToDB();
 
   try {
@@ -43,5 +43,19 @@ export async function updataUser(
     }
   } catch (error: any) {
     throw new Error(`Failed to create/update user: ${error.message}`);
+  }
+}
+
+export async function fetchUser(userId: string) {
+  try {
+    connectToDB();
+
+    return await User.findOne({ id: userId });
+    // .populate({
+    //   path: 'communities',
+    //   model: Community
+    // })
+  } catch (error: any) {
+    throw new Error(`Failed to fetch user: ${error.message}`);
   }
 }
