@@ -42,7 +42,7 @@ export async function createThread({
 export async function fetchPosts(pageNumber = 1, pageSize = 20) {
   connectToDB();
 
-  //Calculate the number of posts to skip
+  //Calculate the number of posts to skip;
   const skipAmount = pageSize * (pageNumber - 1);
 
   // Fetch the posts that have no parents (top-level threads ...)
