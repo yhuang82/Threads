@@ -5,7 +5,7 @@ import Thread from "../models/thread.model";
 import User from "../models/user.model";
 import { connectToDB } from "../mongoose";
 
-// action to create a new thread123
+// action to create a new thread1231231
 interface Params {
   text: string;
   author: string;
