@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import Thread from "../models/thread.model";
 import User from "../models/user.model";
 import { connectToDB } from "../mongoose";
+import path from "path";
 
 // action to create a new thread1231231
 interface Params {
@@ -86,10 +87,25 @@ export async function fetchThreadById(id: string) {
       .populate({
         path: "children",
         populate: [
-          
+          {
+            path: "author",
+            model: User,
+            select: "_id name parentId image"
+          },
+          {
+            path: "children",
+            model: Thread,
+            populate: {
+              path: "author",
+              model: User,
+              select: "_id name parentId image"
+            }
+          }
         ]
-    })
-  } catch (error) {
+      }).exec();
     
+    return thread;
+  } catch (error: any) {
+    throw new Error(`Error fetching thread: ${error.message}`);
   }
 }
